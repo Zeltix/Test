@@ -13,10 +13,9 @@ jobs:
       pages: write
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/upload-artifact@v4
     - uses: actions/checkout@v4
     - name: Setup .NET 8
-    - uses: actions/upload-artifact@v4
-    - name: idk??
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
