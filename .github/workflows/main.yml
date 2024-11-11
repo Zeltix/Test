@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # клонируем репозиторий на виртуальную машину
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
       # ставим нужный SDK (можно использовать и более старые)
-    - name: Setup .NET 6
-      uses: actions/setup-dotnet@v1
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
         include-prerelease: true
         
       # генерируем статические файлы
