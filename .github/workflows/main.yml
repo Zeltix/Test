@@ -9,16 +9,16 @@ jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
     steps:
-      # клонируем репозиторий на виртуальную машину
     - uses: actions/checkout@v4
-    
-      # ставим нужный SDK (можно использовать и более старые)
     - name: Setup .NET 8
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
         include-prerelease: true
-        
-      # генерируем статические файлы
     - name: Publish .NET Core Project
       run: dotnet publish test.csproj -c Release --output release --nologo
+    - name: Uploading files to gh-pages branch
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: release/wwwroot
