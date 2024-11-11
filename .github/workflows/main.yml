@@ -8,6 +8,7 @@ on:
 jobs:
   deploy-to-github-pages:
     permissions:
+      actions: read
       id-token: write
       pages: write
     runs-on: ubuntu-latest
